@@ -1,0 +1,111 @@
+------------------------------------------------------Buga Anna------------------
+
+```{r}
+
+```
+
+#Import csv file:
+
+```{r}
+info=read.csv("EcommerceSalesData.csv")
+placement=data.frame(info)
+info
+```
+
+```{r}
+library("ggplot2")
+info1<-ggplot(placement,aes(x=Day_of_Week, y=price, fill=category))+geom_dotplot(stat="identity", colour="black", position="dodge")+theme(plot.title = element_text(hjust = 0.5, face="bold"))+labs(title = "Day_Week_sales")
+info1+ xlab("Day of Week") + ylab("Price")
+```
+
+more sales in Sunday
+
+#part 2
+
+```{r}
+
+nmbrPopulation<- 50000*(25/100)
+```
+
+```{r}
+#12%
+Population_Buyers <- nmbrPopulation * (12/100)
+SalesAfterTV_ADV <- 1500
+```
+
+```{r}
+```
+
+```{r}
+SalesBeforeTV_ADV <- sum(info1$price)
+```
+
+```{r}
+InvestmentTV <- 15000
+Profit <- SalesAfterTV_ADV - InvestmentTV
+GrowTV <- 100*round(SalesAfterTV_ADV / SalesBeforeTV_ADV, 2)
+`
+
+```
+
+```{r}
+print(paste("SalesBeforeTV_ADV =","$",SalesBeforeTV_ADV))
+print(paste("SalesAfterTV_ADV =","$",SalesAfterTV_ADV))
+print(paste("Growth Rate =",GrowTV, "%"))
+print(paste("Profit =","$",Profit))
+print("After investment 15,000  the new sales = 1,500")
+print("loss $13.500")
+```
+
+#part3
+
+```{r}
+nmbrPopulation <- 50000 * (10/100)
+Population_Buyers <- Population * (5/100)
+SalesAfterRadio_ADV <- 500
+SalesBeforeRadio_ADV <- sum(info1$price)
+InvestmentRD <- 15000
+Profit <- SalesAfterRadio_ADV - InvestmentRD
+Sales <- 100 * round(SalesAfterRadio_ADV / SalesBeforeRadio_ADV, 2)
+```
+
+```{r}
+print(paste("SalesBeforeRadio_ADV =","$",SalesBeforeRadio_ADV))
+print(paste("SalesAfterRadio_ADV =","$",SalesAfterRadio_ADV))
+print(paste("Growth Rate =",Sales, "%"))
+print(paste("Profit =","$",Profit))
+print("lost $14.500")
+```
+
+part4
+
+```{r}
+SalesGrowthTV <- SalesAfterTV_ADV - SalesBeforeTV_ADV
+ROI_TV <- round(SalesGrowthTV / InvestmentTV *100, 2)
+print(paste("ROI for TV =",ROI_TV, "%"))
+
+```
+
+```{r}
+SalesGrowthRD <- SalesAfterRadio_ADV - SalesBeforeRadio_ADV
+ROI_RD <- round(SalesGrowthRD / InvestmentRD *100, 2)
+print(paste("ROI for Radio =",ROI_RD, "%"))
+```
+
+```{r}
+info1<-ggplot(placement,aes(x=SalesAfterRadio_ADV,y=SalesBeforeTV_ADV, fill=category))+geom_area()+labs(title = "sales")
+info1+ xlab("SalesAfterRadio_ADV") + ylab("SalesBeforeTV_ADV")
+```
+
+```{r}
+
+```
+
+```{r}
+```
+
+dd a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
